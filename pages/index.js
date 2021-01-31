@@ -8,64 +8,49 @@ import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+import QuizContainer from '../src/components/QuizContainer';
 
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState('');
-
   return (
-      <QuizBackground backgroundImage={db.bg}>
-        <QuizContainer>
-          <QuizLogo />
-          <Widget>
-            <Widget.Header>
-              <h1>{db.title}</h1>
-            </Widget.Header>
-            <Widget.Content>
-              <p>{db.description}</p>
-              <form action="" onSubmit={function(e) {
-                //router manda para pagina quiz
-                e.preventDefault();
-                router.push(`/quiz?name=${name}`)
-                console.log("Fazendo Submit React")
-
-              }} >
-                <Widget.Input 
-                  placeholder="Nome" 
-                  type="text" 
-                  name="name" 
-                  onChange={function(e) {
-                    // State
-                    setName(e.target.value);
-
-                  }}
-                />
-                <Widget.Button type="submit" disabled={ !name } >Jogar</Widget.Button>
-              </form>
-              {/* <p>Nome: {name}</p> */}
-            </Widget.Content>
-          </Widget>
-
-          <Widget>
-            <Widget.Content>
-              <h1>Quizes da Galera</h1>
-              <p>lorem ipsum dolor sit amet...</p>
-            </Widget.Content>
-          </Widget>
-          <Footer />
-        </QuizContainer>
-        <GitHubCorner projectUrl="https://github.com/capelaum" />
-      </QuizBackground>
+    <QuizBackground backgroundImage={db.bg}>
+      <QuizContainer>
+        <QuizLogo />
+        <Widget>
+          <Widget.Header>
+            <h1>{db.title}</h1>
+          </Widget.Header>
+          <Widget.Content>
+            <p>{db.description}</p>
+            <form action="" onSubmit={function(e) {
+              //router manda para pagina quiz
+              e.preventDefault();
+              router.push(`/quiz?name=${name}`)
+            }} >
+              <Widget.Input 
+                placeholder="Nome*" 
+                type="text" 
+                name="nome" 
+                onChange={e => setName(e.target.value) }
+              />
+              <Widget.Button type="submit" disabled={ !name } >Jogar</Widget.Button>
+            </form>
+          </Widget.Content>
+        </Widget>
+        <Widget>
+          <Widget.Content>
+            <h1>
+              <a href="https://aluraquiz-base.alura-challenges.vercel.app/contribuidores" target="_blank">
+                Quizes da Galera
+              </a>
+            </h1>
+            <p>lorem ipsum dolor sit amet...</p>
+          </Widget.Content>
+        </Widget>
+        <Footer />
+      </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/capelaum" />
+    </QuizBackground>
   );
 }

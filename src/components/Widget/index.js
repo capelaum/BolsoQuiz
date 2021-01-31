@@ -45,6 +45,14 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
+  a{
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.white};
+  }
+  a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
 
 Widget.Input = styled.input`
@@ -53,7 +61,6 @@ Widget.Input = styled.input`
   border-radius: 5px;
   padding: 8px;
   margin-top: 8px;
-
 `;
 
 Widget.Button = styled.button`
@@ -64,20 +71,16 @@ Widget.Button = styled.button`
   margin-top: 16px;
   font-size: 20px;
   font-weight: 700;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: #000;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: #FFF;
   cursor: pointer;
   transition: 0.3s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.secondary};
     opacity: 0.8;
-    color: #FFF;
-
-
+    color: #000;
   }
-
-
 `;
 
 export default Widget;
