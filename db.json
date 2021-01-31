@@ -5,29 +5,79 @@
   "questions": [
     {
       "image": "https://media.giphy.com/media/lz6QCf8mXOPLJWJpTc/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
+      "title": "Com relação à vacina do covid, qual das seguintes frases foram proferidas por ele? ",
       "description": "Essa é pra aquecer",
+      "answer": 0,
+      "alternatives": [
+        "Ninguém pode obrigar ninguém a tomar vacina. Eu não vou tomar.",
+        "Todos terão que tomar a vacina.",
+        "Vacina do Brasil é top.",
+        "Nós compraremos vacinas da China."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/Tira1U41atsoW8FA1K/giphy.gif",
+      "title": "Qual das alternativas contém algo que o presidente Jair Bolsonaro não falou em relação ao número de mortos na pandemia?",
+      "description": "De cair o c* da bunda..",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Eu não sou coveiro.",
+        "E daí? Lamento. Quer que eu faça o quê? Eu sou Messias, mas não faço milagre.",
+        "Não quero arrastar um cemitério de mortos nas minhas costas.",
+        "Tem que deixar de ser um país de maricas."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/Su5hvxoIP8T1VHDAlQ/giphy.gif",
+      "title": "Ditadura",
+      "description": "Ditadura",
+      "answer": 0,
+      "alternatives": [
+        "O erro da ditadura foi torturar e não matar.",
+        "Foram quatro homens. A quinta eu dei uma fraquejada, e veio uma mulher."
       ]
     },
     {
       "image": "https://media.giphy.com/media/MFJjaYfLvIZNVGtFpx/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
-      "answer": 0,
+      "title": "Qual das frases a seguir foi proferida à deputada Maria do Rosário?",
+      "description": "Faz um tempinho essa em haha",
+      "answer": 1,
       "alternatives": [
-          "background: linear-gradient(#e66465, #9198e5);",
-          "background: gradient(#e66465, #9198e5);"
+        "Nunca te estupraria porque você é muito feia, ta ok?",
+        "Eu jamais ia estuprar você porque você não merece.",
+        "Mulheres como você nem merecem ser violentadas.",
+        "Só não te estupro porque você é rídicula."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/WpTOOopHXbouxaFn81/giphy.gif",
+      "title": "Em relação aos gays, qual das seguintes frases ele não falou?",
+      "description": "Colorido",
+      "answer": 3,
+      "alternatives": [
+        "O filho começa a ficar assim meio gayzinho, leva um couro, ele muda o comportamento dele. Tá certo?",
+        "90% desses meninos adotados [por um casal gay] vão ser homossexuais e vão ser garotos de programa com toda certeza.",
+        "Não existe homofobia no Brasil.",
+        "Diga não à homofobia."
+      ]
+    },
+    {
+      "image": "https://i.pinimg.com/originals/a1/bd/a7/a1bda7df8ad6e3abf25ea2417d28fb7c.gif",
+      "title": "Qual desse deputados cuspiu na em Bolsonaro?",
+      "description": "Cuspidinha",
+      "answer": 1,
+      "alternatives": [
+        "Maria do Rosário",
+        "Jean Willis",
+        "Lula",
+        "Ciro Gomes"
       ]
     }
   ],
   "external": [
-    ""
+    "https://alura-quiz-frontend-fischerafael.fischerafael.vercel.app",
+    "https://theofficequiz.brunaguedes92.vercel.app",
+    "https://aluraquiz-css.omariosouto.vercel.app"
   ],
   "theme": {
     "colors": {
@@ -35,8 +85,8 @@
       "secondary": "#ffea00",
       "mainBg": "#171B35",
       "white": "#FFFFFF",
-      "wrong": "#FF5722",
-      "success": "#4CAF50"
+      "wrong": "#E92929",
+      "success": "#49AA26"
     },
     "borderRadius": "5px"
   }

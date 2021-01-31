@@ -34,6 +34,9 @@ Widget.Header = styled.header`
 
 Widget.Content = styled.div`
   padding: 24px 32px 32px 32px;
+  h2{
+    line-height: 1.2rem;
+  }
   & > *:first-child {
     margin-top: 0;
   }
@@ -43,9 +46,19 @@ Widget.Content = styled.div`
   ul {
     list-style: none;
     padding: 0;
+
   }
+  
+  li[data-result="false"] {
+    color: ${({ theme }) => theme.wrong};
+  }
+  
   .loading-container{
     text-align: center;
+  }
+
+  .true {
+    color: ${({ theme }) => theme.success};
   }
 
   .loading-container img{
@@ -56,9 +69,13 @@ Widget.Content = styled.div`
 Widget.Input = styled.input`
   width: 100%;
   border: none;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  outline: 0;
+  margin-bottom: 25px;
   padding: 8px;
   margin-top: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.mainBg};
 `;
 
 Widget.Button = styled.button`
@@ -77,7 +94,7 @@ Widget.Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
     opacity: 0.8;
-    color: #FFF;
+    color: #000;
   }
 `;
 
@@ -92,7 +109,7 @@ Widget.Topic = styled.a`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: .3s;
   display: block;
-  
+
   &:hover,
   &:focus {
     opacity: .5;

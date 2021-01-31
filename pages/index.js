@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
+import Link from '../src/components/Link';
 import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
 import Footer from '../src/components/Footer';
@@ -35,7 +35,6 @@ export default function Home() {
                 onChange={function(e) {
                   // State
                   setName(e.target.value);
-
                 }}
               />
               <Widget.Button type="submit" disabled={ !name } >Jogar</Widget.Button>
@@ -47,7 +46,29 @@ export default function Home() {
         <Widget>
           <Widget.Content>
             <h1>Quizes da Galera</h1>
-            <p>lorem ipsum dolor sit amet...</p>
+            <ul>
+              {db.external.map((linkExterno) => {
+                const [projectName, githubUser] = linkExterno
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.')
+
+                return (
+                  <li key={linkExterno}>
+                    <Widget.Topic 
+                    as={Link}
+                    // href={`/quiz/${githubUser}___${projectName}`} 
+                    href={linkExterno} 
+                    target="_blank" 
+                    >
+                      {`${githubUser}/${projectName}`}
+                    </Widget.Topic>
+                  </li>
+                );
+              })}
+            </ul>
+
           </Widget.Content>
         </Widget>
         <Footer />
