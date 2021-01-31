@@ -5,6 +5,7 @@ import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
+import AlternativesForm from '../src/components/AlternativesForm';
 
 function ResultWidget({ results }) {
   return (
@@ -29,7 +30,7 @@ function ResultWidget({ results }) {
         </ul>
       </Widget.Content>
     </Widget>
-  );
+  ); 
 }
 
 function LoadingWidget() {
@@ -55,11 +56,11 @@ function QuestionWidget({
   onSubmit,
   addResult,
 }) {
-  const [selectededAlternative, setSelectededAlternative] = React.useState(undefined);
+  const [selectdedAlternative, setSelectdedAlternative] = React.useState(undefined);
   const [alternativeSubmitted, setAlternativeSubmitted] = React.useState(false)
   const questionId = `question__${questionIndex}`;
-  const isCorrect = selectededAlternative === question.answer;
-  const hasAlternativeSelected = selectededAlternative !== undefined;
+  const isCorrect = selectdedAlternative === question.answer;
+  const hasAlternativeSelected = selectdedAlternative !== undefined;
 
   return (
     <Widget>
@@ -87,7 +88,7 @@ function QuestionWidget({
           {question.description}
         </p>
 
-        <form
+        <AlternativesForm
           onSubmit={(e) => {
             e.preventDefault();
             setAlternativeSubmitted(true);
@@ -96,31 +97,36 @@ function QuestionWidget({
               addResult(isCorrect)
               onSubmit();
               setAlternativeSubmitted(false);
-              setSelectededAlternative(undefined);
+              setSelectdedAlternative(undefined);
             }, 3 * 1000);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
+            const selectedAlternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR'
+            const isSelected = selectdedAlternative === alternativeIndex
+            
             return (
               <Widget.Topic
                 as="label"
                 htmlFor={alternativeId}
                 key={alternativeId}
+                data-selected={isSelected}
+                data-status={alternativeSubmitted && selectedAlternativeStatus}
               >
                 <input
                   // style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
                   type="radio"
-                  onChange={() => setSelectededAlternative(alternativeIndex)}
+                  onChange={() => setSelectdedAlternative(alternativeIndex)}
                 />
                 {alternative}
               </Widget.Topic>
             );
           })}
 
-          {/* <p>selectededAlternative: {`${selectededAlternative}`}</p> */}
+          {/* <p>selectdedAlternative: {`${selectdedAlternative}`}</p> */}
           { alternativeSubmitted ? (isCorrect ? <p>Você acertou!</p> : <p>Você errou!</p>) : ''}
 
           <Widget.Button type="submit" disabled={!hasAlternativeSelected}>
@@ -130,7 +136,7 @@ function QuestionWidget({
           {/* <pre>
             {JSON.stringify(question, null, 4)}
           </pre> */}
-        </form>
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );
