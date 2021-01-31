@@ -1,18 +1,16 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Widget = styled.div`
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 16px;
+  margin-bottom: 32px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => {
-    return theme.colors.mainBg;
-  }};
+  background-color: rgba(23, 27, 53, 0.9);
   border-radius: 4px;
   overflow: hidden;
 
   h1, h2, h3 {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1;
     margin-bottom: 0;
   }
@@ -47,6 +45,39 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
+`;
+
+Widget.Input = styled.input`
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  margin-top: 8px;
+
+`;
+
+Widget.Button = styled.button`
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    opacity: 0.8;
+    color: #FFF;
+
+
+  }
+
+
 `;
 
 export default Widget;
