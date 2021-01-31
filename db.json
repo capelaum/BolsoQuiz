@@ -4,7 +4,7 @@
   "description": "Teste seu conhecimentos sobre o mítico presidente do Brasil Jair Bolsonaro!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
+      "image": "https://media.giphy.com/media/lz6QCf8mXOPLJWJpTc/giphy.gif",
       "title": "Como fazer um seletor por id via CSS?",
       "description": "Essa é pra aquecer",
       "answer": 2,
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+      "image": "https://media.giphy.com/media/MFJjaYfLvIZNVGtFpx/giphy.gif",
       "title": "Como fazer um background gradiente com css?",
       "description": "Faz tempo em haha",
       "answer": 0,
@@ -38,6 +38,6 @@
       "wrong": "#FF5722",
       "success": "#4CAF50"
     },
-    "borderRadius": "4px"
+    "borderRadius": "5px"
   }
 }

@@ -29,22 +29,24 @@ export default function Home() {
               router.push(`/quiz?name=${name}`)
             }} >
               <Widget.Input 
-                placeholder="Nome*" 
+                placeholder="Nome" 
                 type="text" 
-                name="nome" 
-                onChange={e => setName(e.target.value) }
+                name="name" 
+                onChange={function(e) {
+                  // State
+                  setName(e.target.value);
+
+                }}
               />
               <Widget.Button type="submit" disabled={ !name } >Jogar</Widget.Button>
             </form>
+            {/* <p>Nome: {name}</p> */}
           </Widget.Content>
         </Widget>
+
         <Widget>
           <Widget.Content>
-            <h1>
-              <a href="https://aluraquiz-base.alura-challenges.vercel.app/contribuidores" target="_blank">
-                Quizes da Galera
-              </a>
-            </h1>
+            <h1>Quizes da Galera</h1>
             <p>lorem ipsum dolor sit amet...</p>
           </Widget.Content>
         </Widget>

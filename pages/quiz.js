@@ -1,53 +1,196 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
-
+/* eslint-disable react/prop-types */
+import React from 'react';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
-import Footer from '../src/components/Footer';
-import GitHubCorner from '../src/components/GitHubCorner';
+import QuizContainer from '../src/components/QuizContainer';
+
+function ResultWidget({ results }) {
+  return (
+    <Widget>
+      <Widget.Header>
+        ✨ Seu Score
+      </Widget.Header>
+      <Widget.Content>
+        <h3>
+          Você acertou { ' ' }
+          { results.filter(result => result).length} 
+          { ' ' }
+          perguntas!
+        
+        </h3>
+        <ul>
+          {results.map((result, resultIndex) => 
+            <li key={resultIndex}>
+              {resultIndex + 1}) {result ? 'Acertou' : 'Errou'}
+            </li>
+          )}
+        </ul>
+      </Widget.Content>
+    </Widget>
+  );
+}
+
+function LoadingWidget() {
+  return (
+    <Widget>
+      <Widget.Header>
+        Carregando...
+      </Widget.Header>
+
+      <Widget.Content>
+        <div className="loading-container">
+          <img src="/loading.gif" alt="loading"/>
+        </div>
+      </Widget.Content>
+    </Widget>
+  );
+}
+
+function QuestionWidget({
+  question,
+  questionIndex,
+  totalQuestions,
+  onSubmit,
+  addResult,
+}) {
+  const [selectededAlternative, setSelectededAlternative] = React.useState(undefined);
+  const [alternativeSubmitted, setAlternativeSubmitted] = React.useState(false)
+  const questionId = `question__${questionIndex}`;
+  const isCorrect = selectededAlternative === question.answer;
+  const hasAlternativeSelected = selectededAlternative !== undefined;
+
+  return (
+    <Widget>
+      <Widget.Header>
+        {/* <BackLinkArrow href="/" /> */}
+        <h3>
+          {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
+        </h3>
+      </Widget.Header>
+
+      <img
+        alt="Descrição"
+        style={{
+          width: '100%',
+          height: '150px',
+          objectFit: 'cover',
+        }}
+        src={question.image}
+      />
+      <Widget.Content>
+        <h2>
+          {question.title}
+        </h2>
+        <p>
+          {question.description}
+        </p>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setAlternativeSubmitted(true);
+
+            setTimeout(() => {
+              addResult(isCorrect)
+              onSubmit();
+              setAlternativeSubmitted(false);
+              setSelectededAlternative(undefined);
+            }, 3 * 1000);
+          }}
+        >
+          {question.alternatives.map((alternative, alternativeIndex) => {
+            const alternativeId = `alternative__${alternativeIndex}`;
+            return (
+              <Widget.Topic
+                as="label"
+                htmlFor={alternativeId}
+                key={alternativeId}
+              >
+                <input
+                  // style={{ display: 'none' }}
+                  id={alternativeId}
+                  name={questionId}
+                  type="radio"
+                  onChange={() => setSelectededAlternative(alternativeIndex)}
+                />
+                {alternative}
+              </Widget.Topic>
+            );
+          })}
+
+          {/* <p>selectededAlternative: {`${selectededAlternative}`}</p> */}
+          { alternativeSubmitted ? (isCorrect ? <p>Você acertou!</p> : <p>Você errou!</p>) : ''}
+
+          <Widget.Button type="submit" disabled={!hasAlternativeSelected}>
+            Confirmar
+          </Widget.Button>
+
+          {/* <pre>
+            {JSON.stringify(question, null, 4)}
+          </pre> */}
+        </form>
+      </Widget.Content>
+    </Widget>
+  );
+}
+
+const screenStates = {
+  QUIZ: 'QUIZ',
+  LOADING: 'LOADING',
+  RESULT: 'RESULT',
+};
 
 export default function QuizPage() {
+  const [screenState, setScreenState] = React.useState(screenStates.QUIZ);
+  const totalQuestions = db.questions.length;
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const questionIndex = currentQuestion;
+  const question = db.questions[questionIndex];
+  const [results, setResults] = React.useState([]);
+
+  function addResult(result) {
+    setResults([...results, result]);
+  }
+
+  // [React chama de: Efeitos || Effects]
+  // atualizado === willUpdate
+  // morre === willUnmount
+  React.useEffect(() => {
+    // fetch() ...
+    setTimeout(() => {
+      setScreenState(screenStates.QUIZ);
+    }, 1 * 1000);
+  // nasce === didMount
+  }, []);
+
+  function handleSubmitQuiz() {
+    const nextQuestion = questionIndex + 1;
+    if (nextQuestion < totalQuestions) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setScreenState(screenStates.RESULT);
+    }
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
-        <Widget>
-          <Widget.Header>
-            <h1>{db.title}</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>{db.description}</p>
-            <form action="" onSubmit={function(e) {
-              //router manda para pagina quiz
-              e.preventDefault();
-              router.push(`/quiz?name=${name}`)
-            }} >
-              <Widget.Input 
-                placeholder="Nome*" 
-                type="text" 
-                name="nome" 
-                onChange={e => setName(e.target.value) }
-              />
-              <Widget.Button type="submit" disabled={ !name } >Jogar</Widget.Button>
-            </form>
-          </Widget.Content>
-        </Widget>
-        <Widget>
-          <Widget.Content>
-            <h1>
-              <a href="https://aluraquiz-base.alura-challenges.vercel.app/contribuidores" target="_blank">
-                Quizes da Galera
-              </a>
-            </h1>
-            <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
-        </Widget>
-        <Footer />
+        {screenState === screenStates.QUIZ && (
+          <QuestionWidget
+            question={question}
+            questionIndex={questionIndex}
+            totalQuestions={totalQuestions}
+            onSubmit={handleSubmitQuiz}
+            addResult={addResult}
+          />
+        )}
+
+        {screenState === screenStates.LOADING && <LoadingWidget />}
+        {screenState === screenStates.RESULT && <ResultWidget results={results} />}
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/capelaum" />
     </QuizBackground>
   );
 }

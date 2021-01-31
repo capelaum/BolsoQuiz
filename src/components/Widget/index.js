@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 const Widget = styled.div`
-  margin-top: 16px;
   margin-bottom: 32px;
+  /* padding-bottom: 16px; */
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background-color: rgba(23, 27, 53, 0.9);
   border-radius: 4px;
   overflow: hidden;
-
   h1, h2, h3 {
     font-size: 16px;
     font-weight: 400;
@@ -45,13 +44,12 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
-  a{
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.white};
+  .loading-container{
+    text-align: center;
   }
-  a:hover{
-    cursor: pointer;
-    text-decoration: underline;
+
+  .loading-container img{
+    width: 100px;
   }
 `;
 
@@ -79,7 +77,25 @@ Widget.Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
     opacity: 0.8;
-    color: #000;
+    color: #FFF;
+  }
+`;
+
+Widget.Topic = styled.a`
+  outline: 0;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: .3s;
+  display: block;
+  
+  &:hover,
+  &:focus {
+    opacity: .5;
   }
 `;
 
