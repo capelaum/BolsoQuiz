@@ -48,11 +48,11 @@ Widget.Content = styled.div`
     padding: 0;
 
   }
-  
+
   li[data-result="false"] {
     color: ${({ theme }) => theme.wrong};
   }
-  
+
   .loading-container{
     text-align: center;
   }
@@ -71,8 +71,8 @@ Widget.Input = styled.input`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   outline: 0;
-  margin-bottom: 25px;
-  padding: 8px;
+  margin-bottom: 14px;
+  padding: 12px;
   margin-top: 8px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.mainBg};

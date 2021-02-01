@@ -48,11 +48,7 @@ export default function Home() {
             <h1>Quizes da Galera</h1>
             <ul>
               {db.external.map((linkExterno) => {
-                const [projectName, githubUser] = linkExterno
-                  .replace(/\//g, '')
-                  .replace('https:', '')
-                  .replace('.vercel.app', '')
-                  .split('.')
+                const [projectName, githubUser] = new URL(linkExterno).host.split(".")
 
                 return (
                   <li key={linkExterno}>

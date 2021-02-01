@@ -138,14 +138,20 @@ function QuestionWidget({
                   name={questionId}
                   type="radio"
                   onChange={() => setSelectdedAlternative(alternativeIndex)}
-                  checked=""
                 />
                 {alternative}
               </Widget.Topic>
             );
           })}
           {/* <p>selectdedAlternative: {`${selectdedAlternative}`}</p> */}
-          { alternativeSubmitted ? (isCorrect ? <p>Você acertou!</p> : <p>Você errou!</p>) : ''}
+          { 
+            alternativeSubmitted ? 
+            (
+              isCorrect ? 
+              <p style={{ backgroundColor: '#49AA26' }}>Você acertou!</p> : 
+              <p style={{ backgroundColor: '#E92929' }}>Você errou!</p>
+            ) : ''
+          }
 
           <Widget.Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
@@ -170,7 +176,7 @@ export default function QuizPage({ externalQuestions, externalBg}) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [results, setResults] = React.useState([]);
-  
+
   const questionIndex = currentQuestion;
   const totalQuestions = externalQuestions.length;
   const question = externalQuestions[questionIndex];

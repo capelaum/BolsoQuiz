@@ -4,7 +4,7 @@
   "description": "Teste seu conhecimentos sobre o mítico presidente do Brasil Jair Bolsonaro!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/lz6QCf8mXOPLJWJpTc/giphy.gif",
+      "image": "https://media.giphy.com/media/Tira1U41atsoW8FA1K/giphy.gif",
       "title": "Com relação à vacina do covid, qual das seguintes frases foram proferidas por ele? ",
       "description": "Essa é pra aquecer",
       "answer": 0,
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "image": "https://media.giphy.com/media/Tira1U41atsoW8FA1K/giphy.gif",
+      "image": "https://media.giphy.com/media/lz6QCf8mXOPLJWJpTc/giphy.gif",
       "title": "Qual das alternativas contém algo que o presidente Jair Bolsonaro não falou em relação ao número de mortos na pandemia?",
       "description": "De cair o c* da bunda..",
       "answer": 2,
@@ -29,16 +29,18 @@
     },
     {
       "image": "https://media.giphy.com/media/Su5hvxoIP8T1VHDAlQ/giphy.gif",
-      "title": "Ditadura",
+      "title": "Qual dessas frase Bolsonaro disse em relação à ditadura?",
       "description": "Ditadura",
-      "answer": 0,
+      "answer": 2,
       "alternatives": [
+        "A ditadura nem existiu no Brasil.",
         "O erro da ditadura foi torturar e não matar.",
-        "Foram quatro homens. A quinta eu dei uma fraquejada, e veio uma mulher."
+        "O erro da ditadura foi torturar e não matar.",
+        "O erro da ditadura foi torturar e não matar."
       ]
     },
     {
-      "image": "https://media.giphy.com/media/MFJjaYfLvIZNVGtFpx/giphy.gif",
+      "image": "https://i.pinimg.com/originals/a1/bd/a7/a1bda7df8ad6e3abf25ea2417d28fb7c.gif",
       "title": "Qual das frases a seguir foi proferida à deputada Maria do Rosário?",
       "description": "Faz um tempinho essa em haha",
       "answer": 1,
@@ -62,7 +64,7 @@
       ]
     },
     {
-      "image": "https://i.pinimg.com/originals/a1/bd/a7/a1bda7df8ad6e3abf25ea2417d28fb7c.gif",
+      "image": "https://media.giphy.com/media/MFJjaYfLvIZNVGtFpx/giphy.gif",
       "title": "Qual desse deputados cuspiu na em Bolsonaro?",
       "description": "Cuspidinha",
       "answer": 1,
@@ -77,7 +79,8 @@
   "external": [
     "https://alura-quiz-frontend-fischerafael.fischerafael.vercel.app",
     "https://theofficequiz.brunaguedes92.vercel.app",
-    "https://aluraquiz-css.omariosouto.vercel.app"
+    "https://aluraquiz-css.omariosouto.vercel.app",
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app"
   ],
   "theme": {
     "colors": {
