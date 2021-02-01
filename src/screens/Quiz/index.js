@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { useRouter } from 'next/router';
 
 // import db from '../../../db.json';
 import Widget from '../../components/Widget';
@@ -11,6 +12,10 @@ import BackLinkArrow from '../../components/BackLinkArrow';
 import Confetti from '../../components/Confetti';
 
 function ResultWidget({ results }) {
+
+  const router = useRouter();
+  const name = router.query.name
+
   return (
     <Widget>
       <Confetti></Confetti>
@@ -20,7 +25,7 @@ function ResultWidget({ results }) {
           <span style={{ 
             color: '#ffea00',
           }}>
-          Seu Score:{ ' ' }
+          { name }, seu Score:{ ' ' }
           </span>
           {results.filter(result => result).length} pontos.
           </h3>
@@ -175,7 +180,7 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage({ externalQuestions, externalBg}) {
+export default function QuizPage({ isExternal, externalQuestions, externalBg}) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [results, setResults] = React.useState([]);
@@ -211,7 +216,7 @@ export default function QuizPage({ externalQuestions, externalBg}) {
   return (
     <QuizBackground backgroundImage={externalBg}>
       <QuizContainer>
-        <QuizLogo />
+      <QuizLogo isExternal={isExternal}/> 
         {screenState === screenStates.QUIZ && (
           <QuestionWidget
             question={question}
@@ -221,9 +226,6 @@ export default function QuizPage({ externalQuestions, externalBg}) {
             addResult={addResult}
           />
         )}
-
-      {/* {screenState === screenStates.RESULT &&  } */}
-
         {screenState === screenStates.LOADING && <LoadingWidget />}
         {screenState === screenStates.RESULT && <ResultWidget results={results} />}
       </QuizContainer>

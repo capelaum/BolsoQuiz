@@ -36,7 +36,7 @@ export default function Home() {
             <form action="" onSubmit={function(e) {
               //router manda para pagina quiz
               e.preventDefault();
-              router.push(`/quiz?name=${name}`)
+              router.push({ pathname: '/quiz', query: { name: name }})
             }} >
               <Widget.Input 
                 placeholder="Nome" 
@@ -68,14 +68,14 @@ export default function Home() {
             <ul>
               {db.external.map((linkExterno) => {
                 const [projectName, githubUser] = new URL(linkExterno).host.split(".")
-
+                
                 return (
                   <li key={linkExterno}>
                     <Widget.Topic 
                       as={Link}
-                      // href={`/quiz/${githubUser}___${projectName}`} 
-                      href={linkExterno} 
-                      target="_blank" 
+                      href={name ? `/quiz/${githubUser}___${projectName}?name=${name}` : ''}
+                      // href={linkExterno} 
+                      target={name ? "_blank" : "_self"} 
                     >
                       {`${githubUser}/${projectName}`}
                     </Widget.Topic>

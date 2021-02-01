@@ -73,6 +73,7 @@ Widget.Input = styled.input`
   outline: 0;
   margin-bottom: 14px;
   padding: 12px;
+  color: #FFF;
   margin-top: 8px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.mainBg};

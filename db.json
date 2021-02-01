@@ -77,10 +77,11 @@
     }
   ],
   "external": [
-    "https://alura-quiz-frontend-fischerafael.fischerafael.vercel.app",
     "https://theofficequiz.brunaguedes92.vercel.app",
     "https://aluraquiz-css.omariosouto.vercel.app",
-    "https://aluraquiz-devsoutinho.omariosouto.vercel.app"
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app",
+    "https://quiz-react.brenoha.vercel.app",
+    "https://bolso-quiz.capelaum.vercel.app"
   ],
   "theme": {
     "colors": {
