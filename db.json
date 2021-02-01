@@ -17,7 +17,7 @@
     },
     {
       "image": "https://media.giphy.com/media/lz6QCf8mXOPLJWJpTc/giphy.gif",
-      "title": "Qual das alternativas contém algo que o presidente Jair Bolsonaro não falou em relação ao número de mortos na pandemia?",
+      "title": "Qual das alternativas contém algo que o presidente Jair Bolsonaro não falou durante a pandemia?",
       "description": "De cair o c* da bunda..",
       "answer": 2,
       "alternatives": [
@@ -30,13 +30,13 @@
     {
       "image": "https://media.giphy.com/media/Su5hvxoIP8T1VHDAlQ/giphy.gif",
       "title": "Qual dessas frase Bolsonaro disse em relação à ditadura?",
-      "description": "Ditadura",
+      "description": "Ditadura é ficção.",
       "answer": 2,
       "alternatives": [
-        "A ditadura nem existiu no Brasil.",
+        "Na Ditadura quem mandava era o povo.",
+        "Na Ditadura não havia essa corrupção que vemos.",
         "O erro da ditadura foi torturar e não matar.",
-        "O erro da ditadura foi torturar e não matar.",
-        "O erro da ditadura foi torturar e não matar."
+        "A única coisa que salvaria o Brasil é um regime militar novamente."
       ]
     },
     {
@@ -54,7 +54,7 @@
     {
       "image": "https://media.giphy.com/media/WpTOOopHXbouxaFn81/giphy.gif",
       "title": "Em relação aos gays, qual das seguintes frases ele não falou?",
-      "description": "Colorido",
+      "description": "Amor colorido",
       "answer": 3,
       "alternatives": [
         "O filho começa a ficar assim meio gayzinho, leva um couro, ele muda o comportamento dele. Tá certo?",

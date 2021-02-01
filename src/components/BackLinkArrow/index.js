@@ -8,6 +8,7 @@ const StyledLink = styled(Link)`
   &:hover {
     opacity: .5;
   }
+  z-index: 10;
 `;
 
 const SVG = styled.svg`

@@ -8,10 +8,12 @@ import QuizBackground from '../../components/QuizBackground';
 import QuizContainer from '../../components/QuizContainer';
 import AlternativesForm from '../../components/AlternativesForm';
 import BackLinkArrow from '../../components/BackLinkArrow';
+import Confetti from '../../components/Confetti';
 
 function ResultWidget({ results }) {
   return (
     <Widget>
+      <Confetti></Confetti>
       <Widget.Header>
         <BackLinkArrow href="/" />
         ✨ <h3 >
@@ -48,6 +50,8 @@ function ResultWidget({ results }) {
         </ul>
       </Widget.Content>
     </Widget>
+
+
   ); 
 }
 
@@ -218,6 +222,8 @@ export default function QuizPage({ externalQuestions, externalBg}) {
             addResult={addResult}
           />
         )}
+
+      {/* {screenState === screenStates.RESULT &&  } */}
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
         {screenState === screenStates.RESULT && <ResultWidget results={results} />}
