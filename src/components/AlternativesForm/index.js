@@ -20,10 +20,6 @@ const AlternativesForm = styled.form`
     } 
   }
 
-  p .submit-result .correct {
-      background-color: ${({ theme }) => theme.colors.success};
-    }
-
   p {
     padding: 8px;
     display: inline-block;

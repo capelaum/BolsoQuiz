@@ -50,8 +50,6 @@ function ResultWidget({ results }) {
         </ul>
       </Widget.Content>
     </Widget>
-
-
   ); 
 }
 
@@ -142,6 +140,7 @@ function QuestionWidget({
                   name={questionId}
                   type="radio"
                   onChange={() => setSelectdedAlternative(alternativeIndex)}
+                  checked=""
                 />
                 {alternative}
               </Widget.Topic>
