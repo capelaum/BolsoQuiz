@@ -9,6 +9,7 @@
     "lint": "eslint ./ --fix"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "framer-motion": "^3.2.2-rc.1",
     "next": "latest",
     "react": "^16.8.0",
