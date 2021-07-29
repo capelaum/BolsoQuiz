@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Widget = styled.div`
   margin-bottom: 32px;
@@ -7,7 +7,9 @@ const Widget = styled.div`
   background-color: rgba(23, 27, 53, 0.9);
   border-radius: 4px;
   overflow: hidden;
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-size: 16px;
     font-weight: 400;
     line-height: 1;
@@ -26,7 +28,7 @@ Widget.Header = styled.header`
   align-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
-  
+
   * {
     margin: 0;
   }
@@ -34,7 +36,7 @@ Widget.Header = styled.header`
 
 Widget.Content = styled.div`
   padding: 24px 32px 32px 32px;
-  h2{
+  h2 {
     line-height: 1.2rem;
   }
   & > *:first-child {
@@ -46,14 +48,13 @@ Widget.Content = styled.div`
   ul {
     list-style: none;
     padding: 0;
-
   }
 
   li[data-result="false"] {
     color: ${({ theme }) => theme.wrong};
   }
 
-  .loading-container{
+  .loading-container {
     text-align: center;
   }
 
@@ -61,7 +62,7 @@ Widget.Content = styled.div`
     color: ${({ theme }) => theme.success};
   }
 
-  .loading-container img{
+  .loading-container img {
     width: 100px;
   }
 `;
@@ -73,7 +74,7 @@ Widget.Input = styled.input`
   outline: 0;
   margin-bottom: 14px;
   padding: 12px;
-  color: #FFF;
+  color: #fff;
   margin-top: 8px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.mainBg};
@@ -88,7 +89,7 @@ Widget.Button = styled.button`
   font-size: 20px;
   font-weight: 700;
   background-color: ${({ theme }) => theme.colors.primary};
-  color: #FFF;
+  color: #fff;
   cursor: pointer;
   transition: 0.3s;
 
@@ -103,18 +104,19 @@ Widget.Topic = styled.a`
   outline: 0;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  background-color: ${({ theme }) => `${theme.colors.primary}`};
   padding: 10px 15px;
   margin-bottom: 8px;
   cursor: pointer;
   border-radius: ${({ theme }) => theme.borderRadius};
-  transition: .3s;
+  transition: 0.4s;
   display: block;
   overflow: hidden;
 
   &:hover,
   &:focus {
-    opacity: .5;
+    background-color: ${({ theme }) => `${theme.colors.secondary}`};
+    color: #000;
   }
 `;
 

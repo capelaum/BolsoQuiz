@@ -1,19 +1,25 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { motion } from 'framer-motion'
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import Link from '../src/components/Link';
-import QuizLogo from '../src/components/QuizLogo';
-import QuizBackground from '../src/components/QuizBackground';
-import Footer from '../src/components/Footer';
-import GitHubCorner from '../src/components/GitHubCorner';
-import QuizContainer from '../src/components/QuizContainer';
+import db from "../db.json";
+import Widget from "../src/components/Widget";
+import Link from "../src/components/Link";
+import QuizLogo from "../src/components/QuizLogo";
+import QuizBackground from "../src/components/QuizBackground";
+import Footer from "../src/components/Footer";
+import GitHubCorner from "../src/components/GitHubCorner";
+import QuizContainer from "../src/components/QuizContainer";
 
 export default function Home() {
   const router = useRouter();
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    router.push({ pathname: "/quiz", query: { name: name } });
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -22,8 +28,8 @@ export default function Home() {
           as={motion.section}
           transition={{ delay: 0, duration: 0.5 }}
           variants={{
-            show: { opacity: 1, y: '0' },
-            hidden: { opacity: 0, y: '100%' },
+            show: { opacity: 1, y: "0" },
+            hidden: { opacity: 0, y: "100%" },
           }}
           initial="hidden"
           animate="show"
@@ -33,23 +39,17 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
-            <form action="" onSubmit={function(e) {
-              //router manda para pagina quiz
-              e.preventDefault();
-              router.push({ pathname: '/quiz', query: { name: name }})
-            }} >
-              <Widget.Input 
-                placeholder="Nome" 
-                type="text" 
-                name="name" 
-                onChange={function(e) {
-                  // State
-                  setName(e.target.value);
-                }}
+            <form action="" onSubmit={handleSubmit}>
+              <Widget.Input
+                placeholder="Nome"
+                type="text"
+                name="name"
+                onChange={e => setName(e.target.value)}
               />
-              <Widget.Button type="submit" disabled={ !name } >Jogar</Widget.Button>
+              <Widget.Button type="submit" disabled={!name}>
+                Jogar
+              </Widget.Button>
             </form>
-            {/* <p>Nome: {name}</p> */}
           </Widget.Content>
         </Widget>
 
@@ -66,16 +66,22 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da Galera</h1>
             <ul>
-              {db.external.map((linkExterno) => {
-                const [projectName, githubUser] = new URL(linkExterno).host.split(".")
-                
+              {db.external.map(linkExterno => {
+                const [projectName, githubUser] = new URL(
+                  linkExterno
+                ).host.split(".");
+
                 return (
                   <li key={linkExterno}>
-                    <Widget.Topic 
+                    <Widget.Topic
                       as={Link}
-                      href={name ? `/quiz/${githubUser}___${projectName}?name=${name}` : ''}
-                      // href={linkExterno} 
-                      target={name ? "_blank" : "_self"} 
+                      href={
+                        name
+                          ? `/quiz/${githubUser}___${projectName}?name=${name}`
+                          : ""
+                      }
+                      // href={linkExterno}
+                      target={name ? "_blank" : "_self"}
                     >
                       {`${githubUser}/${projectName}`}
                     </Widget.Topic>
@@ -83,10 +89,9 @@ export default function Home() {
                 );
               })}
             </ul>
-
           </Widget.Content>
         </Widget>
-        <Footer 
+        <Footer
           as={motion.footer}
           transition={{ delay: 0.5, duration: 0.5 }}
           variants={{

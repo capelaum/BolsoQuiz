@@ -1,6 +1,11 @@
-# BolsoQuiz 
+# BolsoQuiz
 
-Link do Site na Vercer: [BolsoQuiz](https://bolso-quiz.capelaum.vercel.app)
+<h2>
+  Link:
+  <a href="https://bolso-quiz.capelaum.vercel.app" target="_blank">
+    BolsoQuiz
+  </a>
+</h2>
 
 ![Capa do Projeto](/_docs/Capa-BolsoQuiz.jpeg)
 
@@ -19,6 +24,7 @@ Projeto quiz sobre o presidente Jair Bolsonaro utilizando Next.js e Plataforma d
 Projeto feito na Imersão React da [Alura][5] 2.
 
 ### Onde está o Layout base?
+
 - [Layout](https://www.figma.com/file/cg1MIzSRRss8ggpypQbmdD/AluraQuiz?node-id=0%3A1)
 
 Feito com ♥ :wave: [Get in touch!](https://www.linkedin.com/in/luis-capelletto/)
